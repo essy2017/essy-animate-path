@@ -9,11 +9,11 @@ module.exports = [
       extensions: ['.js', '.jsx']
     },
 
-    entry: path.join(__dirname, '/src/index.js'),
+    entry: path.join(__dirname, '/src/line.js'),
 
     output: {
       path: __dirname,
-      filename: 'index.js'
+      filename: 'bundle-line.js'
     },
 
     module: {

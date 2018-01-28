@@ -122,7 +122,7 @@ function update () {
   pathSeg.attr('d', lineSeg);
 
   // Transition marker from point to nextPoint.
-  marker.transition().duration(2000)
+  marker.transition().duration(1500)
     .attrTween('transform', nextPoint > point ? translateRight(pathSeg.node()) : translateLeft(pathSeg.node()))
     .on('end', () => { point = nextPoint; });
 
