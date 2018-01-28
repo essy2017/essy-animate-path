@@ -4,7 +4,8 @@
   "description": "Example of path animations.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "build": "webpack --config webpack.prod.config.js --progress",
+    "webpack:watch": "webpack --config webpack.config.js --progress --watch"
   },
   "author": "Spencer Cherry",
   "license": "ISC",
