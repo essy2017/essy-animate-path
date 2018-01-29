@@ -16,13 +16,19 @@ const innerHeight = outerHeight - margin.top - margin.bottom;
 const innerWidth  = outerWidth - margin.left - margin.right;
 const parentNode  = d3_select('#example-sine');
 
-// Generates x value with specified increment.
+/**
+ * Generates array of x values between -2*PI and 2*PI, inclusive, with specified
+ * increment.
+ * @method xValues
+ * @param incr {Number} Step increment in generating values.
+ * @return {Number[]} Array of x values.
+ */
 function xValues (incr) {
   let values = [];
   let i = -2;
   while (i <= 2) {
     values.push(i * Math.PI);
-    i = Number((i + incr).toFixed(1));
+    i = Number((i + incr).toFixed(3));
   }
   return values;
 }
@@ -104,9 +110,13 @@ const marker = svg.append('circle')
 
 update();
 
-// Updates marker position.
+/**
+ * Updates position of marker.
+ * @method update
+ */
 function update () {
 
+  // Get new point between -2*PI and 2*PI.
   const nextPoint = (-2 + 4*Math.random()) * Math.PI;
 
   // Insert [nextPoint, Math.sin(nextPoint)] into data set.
@@ -131,7 +141,11 @@ function update () {
   text.text('x = ' + nextPoint.toFixed(3));
 }
 
-// Tween function for moving to right.
+/**
+ * Tween function for moving marker to right.
+ * @method translateRight
+ * @param node {SVGPathElement} Path to follow.
+ */
 function translateRight (node) {
   const l = node.getTotalLength();
   return () => {
@@ -142,7 +156,11 @@ function translateRight (node) {
   };
 }
 
-// Tween function for moving to left.
+/**
+ * Tween function for moving marker to left.
+ * @method translateLeft
+ * @param node {SVGPathElement} Path to follow.
+ */
 function translateLeft (node) {
   const l = node.getTotalLength();
   return () => {

@@ -106,7 +106,10 @@ const marker = svg.append('circle')
 
 update();
 
-// Updates position of marker.
+/**
+ * Updates position of marker.
+ * @method update
+ */
 function update () {
 
   // Get the next point.
@@ -128,7 +131,11 @@ function update () {
   text.text('x = ' + nextPoint);
 }
 
-// Tween function for moving to right.
+/**
+ * Tween function for moving marker to right.
+ * @method translateRight
+ * @param node {SVGPathElement} Path to follow.
+ */
 function translateRight (node) {
   const l = node.getTotalLength();
   return () => {
@@ -139,7 +146,11 @@ function translateRight (node) {
   };
 }
 
-// Tween function for moving to left.
+/**
+ * Tween function for moving marker to left.
+ * @method translateLeft
+ * @param node {SVGPathElement} Path to follow.
+ */
 function translateLeft (node) {
   const l = node.getTotalLength();
   return () => {
