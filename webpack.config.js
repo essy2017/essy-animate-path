@@ -9,12 +9,20 @@ module.exports = [
       extensions: ['.js', '.jsx']
     },
 
-    entry: path.join(__dirname, '/src/line.js'),
+    entry: {
+      line: path.join(__dirname, '/src/line.js'),
+      sine: path.join(__dirname, '/src/sine.js')
+    },
+    output: {
+      path: __dirname,
+      filename: 'bundle-[name].js'
+    },
+    /*entry: path.join(__dirname, '/src/line.js'),
 
     output: {
       path: __dirname,
       filename: 'bundle-line.js'
-    },
+    },*/
 
     module: {
       rules: [
