@@ -9,12 +9,12 @@ import {
   transition  as d3_transition
 } from 'd3';
 
+const parentNode  = d3_select('#example-line');
 const margin      = { top: 10, right: 10, bottom: 20, left: 30 };
-const outerWidth  = 800;
+const outerWidth  = parentNode.node().offsetWidth;
 const outerHeight = 300;
 const innerWidth  = outerWidth - margin.left - margin.right;
 const innerHeight = outerHeight - margin.top - margin.bottom;
-const parentNode  = d3_select('#example-line');
 
 let data          = [];
 let lastY         = 5;
@@ -55,6 +55,7 @@ const x     = d3_scaleLinear().domain([0, data.length - 1]).range([0, innerWidth
 const y     = d3_scaleLinear().domain([0, d3_max(data)]).range([innerHeight, 0]).nice();
 const xAxis = d3_axisBottom(x);
 const yAxis = d3_axisLeft(y);
+
 
 // Render axes.
 svg.append('g')

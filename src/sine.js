@@ -9,12 +9,12 @@ import {
   transition  as d3_transition
 } from "d3";
 
+const parentNode  = d3_select('#example-sine');
 const margin      = { top: 10, right: 10, bottom: 20, left: 30 };
-const outerWidth  = 800;
+const outerWidth  = parentNode.node().offsetWidth;
 const outerHeight = 300;
 const innerHeight = outerHeight - margin.top - margin.bottom;
 const innerWidth  = outerWidth - margin.left - margin.right;
-const parentNode  = d3_select('#example-sine');
 
 /**
  * Generates array of x values between -2*PI and 2*PI, inclusive, with specified
